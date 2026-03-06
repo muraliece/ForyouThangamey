@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Question For You ❤️</title>
+<title>For My Love ❤️</title>
 
 <style>
 
@@ -51,8 +51,8 @@ padding:20px;
 }
 
 video{
+max-height:75vh;
 max-width:90%;
-max-height:70vh;
 border-radius:20px;
 }
 
@@ -96,7 +96,7 @@ opacity:0;
 
 <h1>I knew you would say YES ❤️</h1>
 
-<video controls autoplay>
+<video id="loveVideo" controls playsinline>
 <source src="ourlove.mp4" type="video/mp4">
 </video>
 
@@ -106,7 +106,7 @@ You are my today, tomorrow and forever 💍❤️
 
 </div>
 
-<audio id="bgMusic" autoplay loop>
+<audio id="bgMusic" loop>
 <source src="romantic.mp3" type="audio/mpeg">
 </audio>
 
@@ -155,6 +155,12 @@ heartExplosion();
 
 document.getElementById("question").style.display="none";
 document.getElementById("videoPage").style.display="block";
+
+let video=document.getElementById("loveVideo");
+video.play();
+
+let music=document.getElementById("bgMusic");
+music.play();
 
 }
 
