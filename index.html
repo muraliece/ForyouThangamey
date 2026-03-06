@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Question For You ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+text-align:center;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+overflow:hidden;
+color:white;
+}
+
+.container{
+margin-top:25vh;
+}
+
+h1{
+font-size:2rem;
+padding:10px;
+}
+
+button{
+padding:14px 28px;
+font-size:18px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+margin:10px;
+}
+
+#yes{
+background:#00c853;
+color:white;
+}
+
+#no{
+background:#ff1744;
+color:white;
+position:absolute;
+}
+
+.videoPage{
+display:none;
+padding:20px;
+}
+
+video{
+width:90%;
+max-width:500px;
+border-radius:20px;
+}
+
+.finalMsg{
+font-size:1.8rem;
+margin-top:20px;
+}
+
+.heart{
+position:absolute;
+font-size:24px;
+animation:explode 1.2s ease-out forwards;
+}
+
+@keyframes explode{
+0%{
+transform:scale(0.5);
+opacity:1;
+}
+100%{
+transform:translateY(-200px) scale(2);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="question">
+
+<h1 id="questionText">Will you be my Valentine? ❤️</h1>
+
+<button id="yes" onclick="showVideo()">Yes 💖</button>
+<button id="no" onclick="noClicked()" onmouseover="moveButton()">No 😜</button>
+
+</div>
+
+<div class="videoPage" id="videoPage">
+
+<h1>I knew you would say YES ❤️</h1>
+
+<video controls autoplay>
+<source src="ourlove.mp4" type="video/mp4">
+</video>
+
+<div class="finalMsg">
+You are my today, tomorrow and forever 💍❤️
+</div>
+
+</div>
+
+<audio id="bgMusic" autoplay loop>
+<source src="romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let messages=[
+"Are you sure? 😢",
+"Think again 🥺",
+"Please don't break my heart 💔",
+"Last chance 😭",
+"I will cry 😭",
+"Okay okay... maybe YES? ❤️"
+];
+
+let msgIndex=0;
+
+function moveButton(){
+
+let button=document.getElementById("no");
+
+let x=Math.random()*(window.innerWidth-100);
+let y=Math.random()*(window.innerHeight-100);
+
+button.style.left=x+"px";
+button.style.top=y+"px";
+
+}
+
+function noClicked(){
+
+document.getElementById("questionText").innerText=messages[msgIndex];
+
+msgIndex++;
+
+if(msgIndex>=messages.length){
+msgIndex=messages.length-1;
+}
+
+moveButton();
+
+}
+
+function showVideo(){
+
+heartExplosion();
+
+document.getElementById("question").style.display="none";
+document.getElementById("videoPage").style.display="block";
+
+}
+
+function heartExplosion(){
+
+for(let i=0;i<40;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=(window.innerWidth/2 + (Math.random()*200-100))+"px";
+
+heart.style.top=(window.innerHeight/2)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),1200);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
